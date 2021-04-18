@@ -14,7 +14,7 @@ export class WeatherService {
  }
 
  getWeatherInfo = async (location: string) => {
-  const infoFromCache = this.redisService.getFromRedisCache(location);
+  const infoFromCache = await this.redisService.getFromRedisCache(location);
   if (infoFromCache) {
    return infoFromCache;
   }

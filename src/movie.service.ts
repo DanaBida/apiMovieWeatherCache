@@ -14,7 +14,7 @@ export class MovieService {
  }
 
  getMovieInfo = async (movieName: string) => {
-  const infoFromCache = this.redisService.getFromRedisCache(movieName);
+  const infoFromCache = await this.redisService.getFromRedisCache(movieName);
   if (infoFromCache) {
    return infoFromCache;
   }

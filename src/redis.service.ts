@@ -5,8 +5,13 @@ export class RedisService {
 
  constructor() {
   //by default connecting to localhost:6379
-  this.redisClient = asyncRedis.createClient();
+  return this.init() as any;
  }
+
+ private init = async () => {
+  this.redisClient = await asyncRedis.createClient();
+  return this;
+ };
 
  getFromRedisCache = async (key: string) => {
   try {
